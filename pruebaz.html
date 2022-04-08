@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Ejemplo de APP</title>
+    <link rel="stylesheet" type="text/css" href="cone.css">
+
+    <script>
+        let numero_generado = getRandom();
+        $intentos=1;
+        // Retorna un número aleatorio entre 1 y 100
+        function getRandom() {
+            return Math.floor(Math.random() * (101 - 1)) + 1;
+        }  
+
+        function verificar(){
+            let numero_escrito = document.getElementById( "numero" ).value;
+            console.log( "Número generado " + numero_generado )
+            if( numero_generado < numero_escrito ){
+                alert( "Es menor" )
+            }else if(numero_generado > numero_escrito ) {
+                alert( "Es mayor" )
+            }else
+                document.write ("Felicidades acertaste era el numero " +  numero_generado, "<br> numero de intentos " + $intentos,   '<br><img src="win.jpg" width="400px" height="400px">')
+                $intentos++;
+            
+        }
+    </script>
+
+</head>
+    <body>
+        <header>
+            <h1><center>APP adivina el número</center></h1>
+        </header>
+        <section class="form">
+            <hr>
+            <h4>Escribe el número que creas :</h4>
+            <input class="estil" type="number" name="numero" id="numero" placeholder="numero" value="1" min="1" max="100">
+            <hr>
+            <button class="boton" id="verificar" onclick="verificar()" >Verificar</button>
+            <h3>Mucha Suerte ;)</h3>
+        </section>
+        
+    </body>
+</html>
